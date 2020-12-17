@@ -1,91 +1,152 @@
 /* CSS files add styling rules to your content */
 
-body {
-  font-family: 'Rokkitt', serif;
-  margin: 2em;
-  background-color: #cccccc;
-  background-repeat:no-repeat;
-  background-size: 100% 100%;
+#preloader {
+  position: fixed;
+  height: 105vh;
+  width: 100vw;
+  z-index: 400;
+  background-color: #FEAE47;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-h1 {
-  font-family: 'Courgette', cursive;
-  color: #b39eb5;
+.sk-folding-cube {
+  margin: 20px auto;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  -webkit-transform: rotateZ(45deg);
+          transform: rotateZ(45deg);
 }
 
-
-* {
-  box-sizing: border-box;
-}
-
-.box {
+.sk-folding-cube .sk-cube {
   float: left;
-  padding: 50px;
-  height: 300px;
-}
-
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-.bluebox {
-  background-color: blue;
-  color: white;
-}
-.yellowbox {
-  background-color: yellow;
-}
-.redbox {
-  background-color: red;
-}
-.greenbox {
-  background-color: green;
-}
-.purplebox {
-  background-color: purple;
-  color: white;
-}
-.pinkbox {
-  background-color: pink;
-}
-
-.threecol {
-  width: 33.33%;
-}
-.twocol {
   width: 50%;
+  height: 50%;
+  position: relative;
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1); 
 }
-.onecol {
+.sk-folding-cube .sk-cube:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  background-color: #333;
+  -webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;
+          animation: sk-foldCubeAngle 2.4s infinite linear both;
+  -webkit-transform-origin: 100% 100%;
+      -ms-transform-origin: 100% 100%;
+          transform-origin: 100% 100%;
+}
+.sk-folding-cube .sk-cube2 {
+  -webkit-transform: scale(1.1) rotateZ(90deg);
+          transform: scale(1.1) rotateZ(90deg);
+}
+.sk-folding-cube .sk-cube3 {
+  -webkit-transform: scale(1.1) rotateZ(180deg);
+          transform: scale(1.1) rotateZ(180deg);
+}
+.sk-folding-cube .sk-cube4 {
+  -webkit-transform: scale(1.1) rotateZ(270deg);
+          transform: scale(1.1) rotateZ(270deg);
+}
+.sk-folding-cube .sk-cube2:before {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+.sk-folding-cube .sk-cube3:before {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s; 
+}
+.sk-folding-cube .sk-cube4:before {
+  -webkit-animation-delay: 0.9s;
+          animation-delay: 0.9s;
+}
+@-webkit-keyframes sk-foldCubeAngle {
+  0%, 10% {
+    -webkit-transform: perspective(140px) rotateX(-180deg);
+            transform: perspective(140px) rotateX(-180deg);
+    opacity: 0; 
+  } 25%, 75% {
+    -webkit-transform: perspective(140px) rotateX(0deg);
+            transform: perspective(140px) rotateX(0deg);
+    opacity: 1; 
+  } 90%, 100% {
+    -webkit-transform: perspective(140px) rotateY(180deg);
+            transform: perspective(140px) rotateY(180deg);
+    opacity: 0; 
+  } 
 }
 
-/* Use a media query to add a break point at 800px: */
-@media screen and (max-width:800px) {
-  .threecol, .twocol, .onecol {
-    width:100%; /* The width is 100%, when the viewport is 800px or smaller */
+@keyframes sk-foldCubeAngle {
+  0%, 10% {
+    -webkit-transform: perspective(140px) rotateX(-180deg);
+            transform: perspective(140px) rotateX(-180deg);
+    opacity: 0; 
+  } 25%, 75% {
+    -webkit-transform: perspective(140px) rotateX(0deg);
+            transform: perspective(140px) rotateX(0deg);
+    opacity: 1; 
+  } 90%, 100% {
+    -webkit-transform: perspective(140px) rotateY(180deg);
+            transform: perspective(140px) rotateY(180deg);
+    opacity: 0; 
   }
 }
 
-a {
-  border: 1px solid red;
-  padding: 10px;
-  text-decoration: none;
+.hamburger {
+  display: none;
+  padding: 20px;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  margin: 2em;
+  background-color: #FEAE47;
+}
+
+p {
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Satisfy', cursive;
+  color: #434852;
+  text-align: center;
+}
+table, th, td {
+  margin: 0px auto;
+  border: 1px solid #FFFFFF;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left; 
+}
+
+table {
+  background-color: #56BDE6;
 }
 
 /* unvisited link */
 a:link {
-  color: red;
+  color: black;
 }
 
 /* visited link */
 a:visited {
-  color: green;
+  color: white;
 }
 
 /* mouse over link */
 a:hover {
-  color: hotpink;
+  color: #50c878;
 }
 
 /* selected link */
@@ -93,18 +154,177 @@ a:active {
   color: blue;
 }
 
-div.stupidbutton {
-  border: 1px solid red;
-  padding: 10px;
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+ }
+
+li {
+  float: left;
+}
+
+li a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
   text-decoration: none;
-  background-color:white;
 }
 
-.blue{
- background-color:blue;
+li a:hover {
+  background-color: #111;
 }
 
-.important{
-  background-color:yellow;
+
+.container{
+  width:100%;
+  background-color: #FEAE47;
+  text-align:center;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+
+.navbar {
+  display:flex;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #FEAE47;
+  width:50%;
+  text-align:center;
+  justify-content:center;
+  position: relative;
+}
+
+.shoplist {
+  color: blue;
+}
+
+.web-group {
+  color: blue;
+}
+
+footer {
+  background-color: #50c878;
+}
+
+footer p {
+  padding: 20px;
+  margin-top: 20px;
+  text-align:center;
+}
+
+.active {
+  background-color: #50c878;
+}
+
+
+.homevideo {
+  display:flex;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  align: center;
+  justify-content:center;
+}
+
+/* Then style the iframe to fit in the container div with full height and width */
+.responsive-iframe {
+  position: relative;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 760;
+  height: 515;
+}
+
+.responsiveimg1 {
+    max-width: 100%;
+  height: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.box {
+  float: center;
+  padding: 30px;
+  height: auto;
+  position: relative;
+  justify-content: center;
+  text-align: center;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.firstbox {
+  background-color: #FEAE47;
+}
+.secondbox {
+  background-color: #FEAE47;
+}
+.thirdbox {
+  background-color: #FEAE47;
+}
+.fourthbox {
+  background-color: #FEAE47;
+}
+.fifthbox {
+  background-color: #FEAE47;
+}
+.sixthbox {
+  background-color: #FEAE47;
+}
+/* Use a media query to add a break point at 800px: */
+@media screen and (max-width:800px) {
+  .threecol {
+    width:100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
   
+
+
+.bgimg {
+  background-color: #FEAE47;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
 }
+
+.topleft {
+  position: absolute;
+  top: 0;
+  left: 16px;
+}
+
+.bottomleft {
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+}
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+hr {
+  margin: auto;
+  width: 40%;
+}
+  
